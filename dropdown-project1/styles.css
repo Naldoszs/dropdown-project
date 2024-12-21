@@ -1,0 +1,109 @@
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #23242a;
+  --text-white-100: #fff;
+  --bg-select-header: #2a2f3b;
+  --bg-select-header-hover: #323741;
+  --bg-menu-options: #323741;
+  --menu-options-text: #9fa5b5;
+  --header-border-radius: 1em;
+  --clicked-state-border: #26589a;
+  --list-item-hover: #2a2d35;
+  --list-item-padding: 0.5em;
+  --active-state: #23242a;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.select-menu {
+  min-width: 15em;
+  position: relative;
+  margin: 2em;
+}
+
+.select-menu .select-header {
+  color: var(--text-white-100);
+  background: var(--bg-select-header);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  border: 2px solid var(--bg-select-header);
+  padding: 1em;
+  border-radius: var(--header-border-radius);
+  cursor: pointer;
+  transition: background 300ms;
+}
+
+.select-menu .select-header:hover {
+  background: var(--bg-select-header-hover);
+}
+
+ul {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background-color: var(--bg-menu-options);
+  color: var(--menu-options-text);
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+ul li {
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+  padding: var(--list-item-padding);
+}
+
+ul li:hover {
+  background: var(--list-item-hover);
+}
+
+/* styles to be added later in JS */
+
+.select-header__clicked {
+  border: 2px solid var(--clicked-state-border);
+  box-shadow: 0 0 0.8em var(--clicked-state-border);
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--text-white-100);
+  transition: 300ms;
+}
+
+.caret__rotate {
+  transform: rotate(180deg);
+}
+
+.active {
+  background-color: var(--active-state);
+}
+
+.menu-options__open {
+  display: block;
+  opacity: 1;
+}
